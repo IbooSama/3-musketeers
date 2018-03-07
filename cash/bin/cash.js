@@ -1,4 +1,5 @@
 /*eslint-disable no-process-exit*/
+// Take all the dependencies that "cash" needs
 const got = require('got');
 const money = require('money');
 const chalk = require('chalk');
@@ -6,7 +7,7 @@ const ora = require('ora');
 const currencies = require('../lib/currencies.json');
 
 const API = 'https://api.fixer.io/latest';
-
+// Convert the currencies to another one
 const convert = configuration => {
   const {amount, to, from, response, loading} = configuration;
 
@@ -24,7 +25,7 @@ const convert = configuration => {
       loading.warn(`${chalk.yellow(` The ${item} currency not found `)}`);
     }
   });
-
+// Display the result in the console
   console.log();
   console.log(
     chalk.underline.gray(
@@ -40,7 +41,7 @@ const cash = async command => {
   const to = command.to
     .filter(item => item !== from)
     .map(item => item.toUpperCase());
-
+// Display the stylish spinner in the loading 
   console.log();
   const loading = ora({
     'text': 'Converting currency...',
@@ -52,7 +53,7 @@ const cash = async command => {
   });
 
   loading.start();
-
+// If there is some error those result will be display on the terminal
   try {
     const response = await got(API, {'json': true});
 

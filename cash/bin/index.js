@@ -9,7 +9,7 @@ const config = new Conf();
 const argv = process.argv.slice(2);
 
 helpers(argv);
-
+ // Take the data from the users (The amount, The source currency and the destination currency)
 const command = {
   'amount': argv[0] || 1,
   'from': argv[1] || config.get('defaultFrom', 'USD'),

@@ -5,9 +5,9 @@ const Conf = require('conf');
 const pkg = require('../package.json');
 
 const config = new Conf();
-
+// Notify the user is there is some update
 updateNotifier({pkg}).notify();
-
+// Create default currencies 
 const saveCurrencies = argv => {
   config.set('defaultFrom', argv[1] || config.get('defaultFrom', 'USD'));
   config.set(
@@ -19,12 +19,12 @@ const saveCurrencies = argv => {
   console.log(chalk.green('Saved default currencies to ' + config.path));
   process.exit(1);
 };
-
+// Show the package version of the tool 
 const version = () => {
   console.log(pkg.version);
   process.exit(1);
 };
-
+// Show help guide to the user on the terminal for helping him with the commands 
 const help = () => {
   console.log(`
 Usage:
