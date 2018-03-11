@@ -50,11 +50,15 @@ How it works
 
 
 <h2> Files in cash folder</h2>
+For jsdoc and help go to the cash/bin/out/index.html in your web browser
+
 Currencies.json : Contains the lists of the currencies that the program display
 
 index.js : Take the data from the user which allow to make the process of conversion 
 
-helpers.js : Help and give to the user informations and the different commands of the program 
+helpers.js : Help and give to the user informations and the different commands of the program
+
+cash.js : Convert the currencies to another one
 
 Outro
 -
